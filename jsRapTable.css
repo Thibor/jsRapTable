@@ -1,0 +1,50 @@
+.rapTable{
+	overflow-x:hidden;
+	overflow-y:auto;
+	border: solid 1px #aaa;
+}
+.rapTable table{
+	background-color:#fff;
+	border-spacing:0px;
+	width:100%;
+}
+.rapTable table thead tr th{
+	background-color:#040;
+	color:#fff;
+	padding:4px;
+	cursor:pointer;
+	text-align:left;
+	padding-left:16px;
+	position:sticky;
+    top:0px;
+	z-index:10;
+}
+.rapTable table tbody{
+	font-family:arial;
+	border-collapse: collapse;
+	white-space:nowrap;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+}
+.rapTable table tbody tr{
+	cursor:pointer;
+}
+.rapTable table tbody tr:hover{
+	background-color:#dfd;
+}
+.rapTable table tbody tr img{
+	margin:0px 2px;
+}
+.rapTable table tr td{
+	border-right: 1px solid black;
+	position:relative;
+	padding: 0px 4px;
+}
+.rapTable .grip{
+	top:0px;
+	right:-3px;
+	bottom:0px;
+	width:6px;
+	position:absolute;
+	cursor:w-resize;
+}
