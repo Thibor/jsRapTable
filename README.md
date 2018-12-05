@@ -1,2 +1,2 @@
 # jsRapTable
-JQuery resizable i scrollable table
+JQuery resizable and scrollable table
