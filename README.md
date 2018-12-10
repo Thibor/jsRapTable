@@ -1,5 +1,5 @@
 # jsRapTable
-JQuery resizable and scrollable table plugin
+JQuery sortable resizable and scrollable table plugin
 
 #### Demo
 
