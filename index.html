@@ -8,9 +8,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="jsRapTable.js"></script>
 <script>
+
+function RandomString(){
+let s = '';
+l = Math.floor(Math.random() * 10 + 3)
+while(l--)
+	s += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+return s;
+}
+
 $(document).ready(function(){
 
-$('#demo1').jsRapTable();
+for(let n = 1; n < 40;n++)
+$('<tr>').html('<td>' + Math.floor(Math.random() * 100 + 1) + '</td><td>' + RandomString()+ '</td><td>' + RandomString()+ '</td><td>' + RandomString() + '</td>').appendTo($('tbody'));
+
+$('#demo1').jsRapTable({
+	onSort:function(i,d){
+		$('tbody').find('td').filter(function(){
+					return $(this).index() === i;
+				}).sortElements(function(a, b){
+					if(i)
+						return $.text([a]) > $.text([b]) ?  d ? -1 : 1 : d ? 1 : -1;
+					else
+						return Number($.text([a])) > Number($.text([b])) ?  d ? -1 : 1 : d ? 1 : -1;
+				}, function(){
+					return this.parentNode;
+				});
+	}
+});
 
 });
 </script>
@@ -23,50 +48,9 @@ $('#demo1').jsRapTable();
 <div id="demo1" >
 <table>
 <thead>
-<tr><th id="th1">Id</th><th>AAA</th><th>BBB</th><th>CCC</th></tr>
+<tr><th>AAA</th><th>BBB</th><th>CCC</th><th>DDD</th></tr>
 </thead>
 <tbody>
-<tr><td id="td1">1</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">2</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">3</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">4</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">5</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">6</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">7</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">8</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">9</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">10</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">11</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">12</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">13</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">14</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">15</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">16</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">17</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">18</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">19</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">20</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">21</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">22</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">23</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">24</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">25</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">26</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">27</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">28</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">29</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">30</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">31</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">32</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">33</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">34</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">35</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">36</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">37</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">38</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">39</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-<tr><td id="td1">40</td><td>aaa</td><td>bbb</td><td>ccc</td></tr>
-
 </tbody>
 </table>
 </div>
