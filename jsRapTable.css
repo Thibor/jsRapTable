@@ -1,6 +1,5 @@
 .rapTable{
-	overflow-x:hidden;
-	overflow-y:auto;
+	overflow:auto;
 	border: solid 1px #aaa;
 	max-height:400px;
 }

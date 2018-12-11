@@ -28,9 +28,9 @@ $('#demo1').jsRapTable({
 					return $(this).index() === i;
 				}).sortElements(function(a, b){
 					if(i)
-						return $.text([a]) > $.text([b]) ?  d ? -1 : 1 : d ? 1 : -1;
+						return $.text([a]).localeCompare($.text([b])) * (d ? -1 : 1);
 					else
-						return Number($.text([a])) > Number($.text([b])) ?  d ? -1 : 1 : d ? 1 : -1;
+						return (Number($.text([a])) - Number($.text([b]))) * (d ? -1 : 1);
 				}, function(){
 					return this.parentNode;
 				});
@@ -51,6 +51,7 @@ $('#demo1').jsRapTable({
 <tr><th>AAA</th><th>BBB</th><th>CCC</th><th>DDD</th></tr>
 </thead>
 <tbody>
+<tr><td>231</td><td>OBB</td><td>ĆCC</td><td>DDD</td></tr>
 </tbody>
 </table>
 </div>

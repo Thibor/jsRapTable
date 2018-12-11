@@ -22,6 +22,7 @@ $.fn.jsRapTable = function(options){
 	
 return this.each(function(){
 	this.opt = $.extend({
+		sort:{index:0,up:false},
 		onSort:null
 	},options);
 	let base = this;
@@ -33,15 +34,9 @@ return this.each(function(){
 	$('th',this).each(function(){
 		let th = this;
 		th.addEventListener('click', function(e){
-			let d = $(th).hasClass('darr');
-			$('.uarr').removeClass('uarr');
-			$('.darr').removeClass('darr');
-			if(d)
-				$(th).addClass('uarr');
-			else
-				$(th).addClass('darr');
-			if(base.opt.onSort)
-				base.opt.onSort.call(this,$(th).index(),d);
+			let i = $(th).index();
+			let u = $(th).hasClass('darr');
+			base.Sort(i,u);
 		});
 	});
 	$('td:not(:last-child)',this).each(function() {
@@ -63,12 +58,12 @@ return this.each(function(){
 			let owd = $(thd).width();
 			let ow = ows + owd;
 			let dw = e.clientX - startOffset + startWidth - ows;
-				$(ths).width(ows + dw);
-				$(thd).width(owd - dw);
-				if(dw > 0)
-					$(ths).width(ow - $(thd).width());
-				else
-					$(thd).width(ow - $(ths).width());
+			$(ths).width(ows + dw);
+			$(thd).width(owd - dw);
+			if(dw > 0)
+				$(ths).width(ow - $(thd).width());
+			else
+				$(thd).width(ow - $(ths).width());
 		}else
 			$('tbody tr',base).css({cursor:'pointer'});
 		e.stopPropagation();
@@ -77,6 +72,19 @@ return this.each(function(){
 			ths = null;
 			thd = null;
 	});
+	
+	this.Sort = function(i,u){
+		if(!this.opt.onSort)return;
+		$('.uarr').removeClass('uarr');
+		$('.darr').removeClass('darr');
+		if(u)
+			$('th',this).eq(i).addClass('uarr');
+		else
+			$('th',this).eq(i).addClass('darr');
+		this.opt.onSort.call(this,i,u);
+	}
+	
+	this.Sort(this.opt.sort.index,this.opt.sort.up);
 });
 
 }})(jQuery);
