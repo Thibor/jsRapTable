@@ -39,10 +39,10 @@ return this.each(function(){
 			base.Sort(i,u);
 		});
 	});
-	$('td:not(:last-child)',this).each(function() {
+	$('td:not(:last-child)',this).each(function(){
 		let td = this;
 		let grip =$('<div>').addClass('grip').appendTo($(this))[0];
-		grip.addEventListener('mousedown', function (e) {
+		grip.addEventListener('mousedown', function(e){
 			let i = $(td).index();
 			ths = $('th',base).eq(i);
 			thd = $('th',base).eq(++i);
@@ -50,8 +50,11 @@ return this.each(function(){
 			startWidth = $(ths).width();
 			e.stopPropagation();
         });
+		grip.addEventListener('click',function (e){
+			e.stopPropagation();
+		});
 	});
-	document.addEventListener('mousemove', function (e) {
+	document.addEventListener('mousemove',function (e) {
 		$('tbody tr',base).css({cursor:'w-resize'});
 		if(ths && thd){
 			let ows = $(ths).width();
@@ -66,11 +69,11 @@ return this.each(function(){
 				$(thd).width(ow - $(ths).width());
 		}else
 			$('tbody tr',base).css({cursor:'pointer'});
-		e.stopPropagation();
 	});
-	document.addEventListener('mouseup', function () {
+	document.addEventListener('mouseup',function(e){
 			ths = null;
 			thd = null;
+			e.stopPropagation();
 	});
 	
 	this.Sort = function(i,u){

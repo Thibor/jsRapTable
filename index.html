@@ -20,7 +20,7 @@ return s;
 $(document).ready(function(){
 
 for(let n = 1; n < 40;n++)
-$('<tr>').html('<td>' + Math.floor(Math.random() * 100 + 1) + '</td><td>' + RandomString()+ '</td><td>' + RandomString()+ '</td><td>' + RandomString() + '</td>').appendTo($('tbody'));
+$('<tr onclick="alert(\'id ' + n + '\')">').html('<td>' + Math.floor(Math.random() * 100 + 1) + '</td><td>' + RandomString()+ '</td><td>' + RandomString()+ '</td><td>' + RandomString() + '</td>').appendTo($('tbody'));
 
 $('#demo1').jsRapTable({
 	onSort:function(i,d){
@@ -51,7 +51,6 @@ $('#demo1').jsRapTable({
 <tr><th>AAA</th><th>BBB</th><th>CCC</th><th>DDD</th></tr>
 </thead>
 <tbody>
-<tr><td>231</td><td>OBB</td><td>ĆCC</td><td>DDD</td></tr>
 </tbody>
 </table>
 </div>
