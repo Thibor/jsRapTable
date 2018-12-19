@@ -30,7 +30,7 @@ $('#demo1').jsRapTable({
 					if(i)
 						return $.text([a]).localeCompare($.text([b])) * (d ? -1 : 1);
 					else
-						return (Number($.text([a])) - Number($.text([b]))) * (d ? -1 : 1);
+						return (parseInt($.text([a])) - parseInt($.text([b]))) * (d ? -1 : 1);
 				}, function(){
 					return this.parentNode;
 				});

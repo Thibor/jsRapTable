@@ -51,8 +51,8 @@
 	cursor:w-resize;
 }
 .rapTable .darr:before{
-	content:"↓";
+	content:"▼";
 }
 .rapTable .uarr:before{
-	content:"↑";
+	content:"▲";
 }
