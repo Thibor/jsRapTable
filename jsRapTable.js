@@ -33,6 +33,7 @@ return this.each(function(){
 	$(this).addClass('rapTable');
 	$('th',this).each(function(){
 		let th = this;
+		$('<div>').appendTo(th);
 		th.addEventListener('click', function(e){
 			let i = $(th).index();
 			let u = $(th).hasClass('darr');

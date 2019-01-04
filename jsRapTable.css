@@ -14,12 +14,17 @@
 	padding:4px;
 	cursor:pointer;
 	text-align:left;
-	padding-left:16px;
 	position:sticky;
     top:0px;
 	z-index:10;
 	-webkit-user-select: none;
 	-moz-user-select: none;
+}
+.rapTable table thead tr th div{
+	display:inline-table;
+	width:16px;
+	margin-left:8px;
+	float:right;
 }
 .rapTable table tbody{
 	font-family:arial;
@@ -50,9 +55,9 @@
 	position:absolute;
 	cursor:w-resize;
 }
-.rapTable .darr:before{
+.rapTable .darr div:before{
 	content:"▼";
 }
-.rapTable .uarr:before{
+.rapTable .uarr div:before{
 	content:"▲";
 }
