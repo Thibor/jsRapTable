@@ -55,6 +55,10 @@
 	position:absolute;
 	cursor:w-resize;
 }
+.rapTable .darr,
+.rapTable .uarr{
+	background-color:#484;
+}
 .rapTable .darr div:before{
 	content:"▼";
 }
