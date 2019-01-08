@@ -2,7 +2,8 @@
 	overflow:auto;
 	border: solid 1px #aaa;
 	max-height:400px;
-	overflow:hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 }
 .rapTable table{
 	background-color:#fff;
