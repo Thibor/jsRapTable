@@ -33,7 +33,7 @@ return this.each(function(){
 	$(this).addClass('rapTable');
 	$('th',this).each(function(){
 		let th = this;
-		$('<div>').appendTo(th);
+		$('<span>').appendTo(th);
 		th.addEventListener('click', function(e){
 			let i = $(th).index();
 			let u = $(th).hasClass('darr');
@@ -42,7 +42,7 @@ return this.each(function(){
 	});
 	$('td:not(:last-child)',this).each(function(){
 		let td = this;
-		let grip =$('<div>').addClass('grip').appendTo($(this))[0];
+		let grip = $('<div>').addClass('grip').appendTo($(this))[0];
 		grip.addEventListener('mousedown', function(e){
 			let i = $(td).index();
 			ths = $('th',base).eq(i);
@@ -62,6 +62,10 @@ return this.each(function(){
 			let owd = $(thd).width();
 			let ow = ows + owd;
 			let dw = e.clientX - startOffset + startWidth - ows;
+			if(ows + dw < 3)
+				dw = 3 - ows;
+			if(owd - dw < 3)
+				dw = owd - 3;
 			$(ths).width(ows + dw);
 			$(thd).width(owd - dw);
 			if(dw > 0)
